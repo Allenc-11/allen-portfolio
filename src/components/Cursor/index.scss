@@ -1,0 +1,10 @@
+.cursor {
+  z-index: 999;
+  position: fixed;
+  --tw-bg-opacity: 1;
+  background: radial-gradient(rgba(29, 78, 216, 0.15), transparent 70%);
+  width: 70rem;
+  height: 70rem;
+  border-radius: 100%;
+  transform: translate(-50%, -50%);
+}
