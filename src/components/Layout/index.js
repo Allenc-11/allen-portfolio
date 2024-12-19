@@ -5,8 +5,8 @@ import './index.scss'
 const Layout = () => {
   return (
     <>
-      <Cursor />
       <Sidebar />
+      <Cursor/>
     </>
   )
 }
