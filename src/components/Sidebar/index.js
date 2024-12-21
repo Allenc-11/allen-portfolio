@@ -1,9 +1,10 @@
 import { Link, NavLink } from 'react-router-dom'
 import './index.scss'
-import Logo from '../../assets/images/logo-s.png'
+import Logo from '../../assets/images/logo-ac.png'
 import LogoSubtitle from '../../assets/images/logo_sub.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faHome, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faGithub, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 const Sidebar = () => (
   <div className="nav-bar">
@@ -26,12 +27,42 @@ const Sidebar = () => (
       <NavLink
         exact="true"
         activeclassname="active"
-        className="content-link"
-        to="/content"
+        className="contact-link"
+        to="/contact"
       >
         <FontAwesomeIcon icon={faEnvelope} color="#4d4d4e" />
       </NavLink>
     </nav>
+    <ul>
+      <li>
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://www.linkedin.com/in/allenc11/"
+        >
+          <FontAwesomeIcon icon={faLinkedin} color="#4d4d4e" />
+        </a>
+      </li>
+      <li>
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://github.com/Allenc-11"
+        >
+          <FontAwesomeIcon icon={faGithub} color="#4d4d4e" />
+        </a>
+      </li>
+      <li>
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://www.instagram.com/_.allenc._/"
+        >
+          <FontAwesomeIcon icon={faInstagram} color="#4d4d4e" />
+        </a>
+      </li>
+      
+    </ul>
   </div>
 )
 
