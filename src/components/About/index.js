@@ -38,11 +38,10 @@ const About = () => {
             />
           </h1>
           <p>
-            I'm a very ambitious Computer Science student at Toronto
-            Metropolitan University with a deep interest in software
-            development. Alongside my studies, I’m pursuing a minor in
-            mathematics to strengthen my analytical thinking and problem-solving
-            skills.
+            I'm a very ambitious second year computer science student with a
+            deep interest in software development. Alongside my studies, I’m
+            pursuing a minor in mathematics to strengthen my analytical thinking
+            and problem-solving skills.
           </p>
           <p>
             I’ve built a solid foundation in programming languages such as Java,

@@ -15,27 +15,27 @@
     font-family: 'Coolvetica';
     font-weight: 400;
 
-    &::before{
-        content: '<h1>';
-        color: #ffd700;
-        font-family: 'La Belle Aurore';
-        font-size: 18px;
-        position: absolute;
-        margin-top: -40px;
-        left: 15px;
-        opacity: 0.6;
+    &::before {
+      content: '<h1>';
+      color: #ffd700;
+      font-family: 'La Belle Aurore';
+      font-size: 18px;
+      position: absolute;
+      margin-top: -40px;
+      left: 15px;
+      opacity: 0.6;
     }
 
-    &::after{
-        content: '</h1>';
-        color: #ffd700;
-        font-family: 'La Belle Aurore';
-        font-size: 18px;
-        position: absolute;
-        opacity: 0.6;
-        margin-top: 18px;
-        margin-left: 20px;
-        animation: fadeIn 1s 1.7s backwards;
+    &::after {
+      content: '</h1>';
+      color: #ffd700;
+      font-family: 'La Belle Aurore';
+      font-size: 18px;
+      position: absolute;
+      opacity: 0.6;
+      margin-top: 18px;
+      margin-left: 20px;
+      animation: fadeIn 1s 1.7s backwards;
     }
 
     img {
@@ -47,7 +47,7 @@
     }
   }
 
-  h2{
+  h2 {
     color: #8d8d8d;
     margin-top: 20px;
     font-weight: 400;
@@ -71,7 +71,7 @@
     animation: fadeIn 1s 1.8s backwards;
     white-space: nowrap;
 
-    &:hover{
+    &:hover {
       background: #ffd700;
       color: #333;
     }

@@ -3,7 +3,7 @@ import AnimatedLetters from '../AnimatedLetters'
 import './index.scss'
 import Loader from 'react-loaders'
 import emailjs from '@emailjs/browser'
-import { MapContainer, Marker, Popup , TileLayer} from 'react-leaflet'
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 
 const Contact = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
@@ -23,6 +23,21 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault()
 
+    // Retrieve the last email timestamp from local storage
+    const lastEmailTimestamp = localStorage.getItem('lastEmailTimestamp')
+    const now = Date.now()
+
+    //
+    if (lastEmailTimestamp && now - lastEmailTimestamp < 10 * 60 * 1000) {
+      const timeRemaining = Math.ceil(
+        (10 * 60 * 1000 - (now - lastEmailTimestamp)) / 1000 / 60
+      )
+      alert(
+        `You can only send one email every 10 minutes. Please wait ${timeRemaining} more minutes.`
+      )
+      return
+    }
+
     emailjs
       .sendForm(
         'service_8d655fv',
@@ -33,6 +48,8 @@ const Contact = () => {
       .then(
         () => {
           alert('MESSAGE SUCCESSFULLY SENT!')
+          // Save the current timestamp in local storage
+          localStorage.setItem('lastEmailTimestamp', now)
           window.location.reload(false)
         },
         () => {
@@ -107,10 +124,17 @@ const Contact = () => {
           <span>allenjfchen1121@gmail.com</span>
         </div>
         <div className="map-wrap">
-          <MapContainer center={position} zoom={8} scrollWheelZoom={true} maxZoom={13}>
+          <MapContainer
+            center={position}
+            zoom={8}
+            scrollWheelZoom={true}
+            maxZoom={13}
+          >
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
             <Marker position={position}>
-              <Popup>Allen lives in this area, come over for a cup of coffee :)</Popup>
+              <Popup>
+                Allen lives in this area, come over for a cup of coffee :)
+              </Popup>
             </Marker>
           </MapContainer>
         </div>

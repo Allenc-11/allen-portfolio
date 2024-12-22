@@ -1,36 +1,35 @@
 .logo-container {
-    z-index: 0;
-    width: 400px;
-    height: 609px;
+  z-index: 0;
+  width: 400px;
+  height: 609px;
+  position: absolute;
+  top: 0%;
+  right: 25%;
+  bottom: 0;
+  left: auto;
+  margin: auto;
+
+  .solid-logo {
     position: absolute;
-    top: 0%;
-    right: 25%;
-    bottom: 0;
-    left: auto;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: 0;
     margin: auto;
+    width: 200%;
+    z-index: 1;
+    animation: fadeInRightWithRotate 5s backwards;
+    transform: rotateZ(25deg);
+  }
 
-    .solid-logo {
-      position: absolute;
-      top: auto;
-      right: auto;
-      bottom: auto;
-      left: 0;
-      margin: auto;
-      width: 200%;
-      z-index: 1;
-      animation: fadeInRightWithRotate 5s backwards;
-      transform: rotateZ(25deg);
+  @keyframes fadeInRightWithRotate {
+    0% {
+      opacity: 0;
+      transform: translateX(100%) rotateZ(0deg);
     }
-
-    @keyframes fadeInRightWithRotate {
-      0% {
-        opacity: 0;
-        transform: translateX(100%) rotateZ(0deg);
-      }
-      100% {
-        opacity: 1;
-        transform: translateX(0) rotateZ(25deg);
-      }
+    100% {
+      opacity: 1;
+      transform: translateX(0) rotateZ(25deg);
     }
   }
- 
+}
