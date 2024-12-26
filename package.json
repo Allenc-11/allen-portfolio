@@ -1,8 +1,8 @@
 {
-  "homepage": "http://Allenc-11.github.io/allen-portfolio",
   "name": "allen-portfolio",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://Allenc-11.github.io/allen-portfolio",
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
