@@ -33,7 +33,7 @@ const About = () => {
           <h1>
             <AnimatedLetters
               letterClass={letterClass}
-              strArray={['A', 'b', 'o', 'u', 't', ' ', 'm', 'e']}
+              strArray={'Aboue me'.split('')}
               idx={15}
             />
           </h1>
@@ -58,8 +58,10 @@ const About = () => {
             work settings.
           </p>
         </div>
-
         <div className="stage-cube-cont">
+          <div id="stars"></div>
+          <div id="stars2"></div>
+          <div id="stars3"></div>
           <div className="cubespinner">
             <div className="face1">
               <FontAwesomeIcon icon={faHtml5} color="#F06529" />

@@ -1,14 +1,38 @@
-import { useEffect, useRef, useState } from 'react'
-import AnimatedLetters from '../AnimatedLetters'
 import './index.scss'
+import AnimatedLetters from '../AnimatedLetters'
 import Loader from 'react-loaders'
 import emailjs from '@emailjs/browser'
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
+import { useEffect, useRef, useState } from 'react'
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  Circle,
+  useMap,
+} from 'react-leaflet'
 
 const Contact = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
-  const position = [43.65348991881874, -79.38396132508541]
   const refForm = useRef()
+  const position = [43.65, -79.38]
+  const radius = 30000
+
+  function ZoomToMarker({ position }) {
+    const map = useMap()
+
+    const handleClick = () => {
+      map.setView(position, 9)
+    }
+
+    return (
+      <Marker position={position} eventHandlers={{ click: handleClick }}>
+        <Popup>
+          Allen lives in this area, come over for a cup of coffee :)
+        </Popup>
+      </Marker>
+    )
+  }
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -27,7 +51,6 @@ const Contact = () => {
     const lastEmailTimestamp = localStorage.getItem('lastEmailTimestamp')
     const now = Date.now()
 
-    //
     if (lastEmailTimestamp && now - lastEmailTimestamp < 10 * 60 * 1000) {
       const timeRemaining = Math.ceil(
         (10 * 60 * 1000 - (now - lastEmailTimestamp)) / 1000 / 60
@@ -124,22 +147,38 @@ const Contact = () => {
           <span>allenjfchen1121@gmail.com</span>
         </div>
         <div className="map-wrap">
-          <MapContainer
-            center={position}
-            zoom={8}
-            scrollWheelZoom={true}
-            maxZoom={13}
-          >
-            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-            <Marker position={position}>
-              <Popup>
-                Allen lives in this area, come over for a cup of coffee :)
-              </Popup>
-            </Marker>
+          <MapContainer center={position} zoom={9} scrollWheelZoom={true}>
+            <TileLayer
+              url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+              attribution='&copy; <a href="https://www.carto.com/">CARTO</a>'
+            />
+            <ZoomToMarker position={position} />
+            <Circle
+              center={position}
+              radius={radius}
+              pathOptions={{
+                color: 'blue',
+                fillColor: 'lightblue',
+                fillOpacity: 0.2,
+                weight: 0.5,
+              }}
+            />
           </MapContainer>
         </div>
       </div>
-      <Loader type="pacman" />
+      <div
+        class="preloader"
+        style="display: none; transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);"
+      >
+        <div class="inner">
+          <span>Allen is working</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-bar_bg">
+            <div style="width: 0%;"></div>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
