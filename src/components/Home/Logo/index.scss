@@ -3,33 +3,40 @@
   width: 400px;
   height: 609px;
   position: absolute;
-  top: 0%;
-  right: 25%;
+  top: 20%;
+  right: 20%;
   bottom: 0;
   left: auto;
   margin: auto;
 
   .solid-logo {
+    z-index: 2;
     position: absolute;
     top: auto;
     right: auto;
     bottom: auto;
     left: 0;
     margin: auto;
-    width: 200%;
-    z-index: 1;
-    animation: fadeInRightWithRotate 5s backwards;
-    transform: rotateZ(25deg);
+    top: 3%;
+    left: 3%;
+    width: 120%;
+    animation: bounceIn 3.5s;
   }
 
-  @keyframes fadeInRightWithRotate {
-    0% {
-      opacity: 0;
-      transform: translateX(100%) rotateZ(0deg);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0) rotateZ(25deg);
-    }
+  .blur-logo {
+    position: absolute;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: 0;
+    margin: auto;
+    top: 2%;
+    left: 2%;
+    width: 120%;
+    -webkit-filter: blur(20px);
+    -moz-filter: blur(20px);
+    -o-filter: blur(20px);
+    -ms-filter: blur(20px);
+    filter: blur(20px);
   }
 }

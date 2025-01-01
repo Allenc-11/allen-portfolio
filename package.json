@@ -12,6 +12,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "animate.css": "^4.1.1",
+    "framer-motion": "^11.15.0",
     "leaflet": "^1.9.4",
     "loaders.css": "^0.1.2",
     "react": "^19.0.0-rc.1",
