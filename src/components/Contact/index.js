@@ -1,6 +1,5 @@
 import './index.scss'
 import AnimatedLetters from '../AnimatedLetters'
-import Loader from 'react-loaders'
 import emailjs from '@emailjs/browser'
 import { useEffect, useRef, useState } from 'react'
 import {
@@ -164,19 +163,6 @@ const Contact = () => {
               }}
             />
           </MapContainer>
-        </div>
-      </div>
-      <div
-        class="preloader"
-        style="display: none; transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);"
-      >
-        <div class="inner">
-          <span>Allen is working</span>
-        </div>
-        <div class="progress-bar">
-          <div class="progress-bar_bg">
-            <div style="width: 0%;"></div>
-          </div>
         </div>
       </div>
     </>

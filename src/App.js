@@ -5,18 +5,31 @@ import Home from './components/Home'
 import About from './components/About'
 import Contact from './components/Contact'
 import Portfolio from './components/Portfolio'
+import Preloader from './components/Preloader'
+import { useEffect, useState } from 'react'
 
 function App() {
+  const [isAppVisible, setIsAppVisible] = useState(false)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsAppVisible(true)
+    }, 4500)
+
+    return () => clearTimeout(timer)
+  }, [])
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="portfolio" element={<Portfolio />} />
-        </Route>
-      </Routes>
+      <Preloader />
+      {isAppVisible && (
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="about" element={<About />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="portfolio" element={<Portfolio />} />
+          </Route>
+        </Routes>
+      )}
     </>
   )
 }

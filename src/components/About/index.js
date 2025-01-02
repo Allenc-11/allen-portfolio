@@ -2,7 +2,6 @@ import './index.scss'
 import AnimatedLetters from '../AnimatedLetters'
 import { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Loader from 'react-loaders'
 import {
   faCss3,
   faGitAlt,
@@ -84,7 +83,6 @@ const About = () => {
           </div>
         </div>
       </div>
-      <Loader type="pacman" />
     </>
   )
 }
