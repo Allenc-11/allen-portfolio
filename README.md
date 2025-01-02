@@ -18,7 +18,7 @@ The primary goal of this website is to:
 ## Technology Stack
 This website is built with:
 
-- **Frontend**: HTML/XML, CSS/SCSS, JavaScript
+- **Frontend**: HTML, CSS/SCSS, JavaScript
 - **Frameworks/Libraries**: React.js
 
 ## How to Use
