@@ -7,8 +7,8 @@ import Logo from './Logo'
 
 const Home = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
-  const nameArray = ['l', 'l', 'e', 'n']
-  const jobArray = "Software Engineer".split("")
+  const nameArray = "llen".split('')
+  const jobArray = "Software Engineer.".split('')
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -26,11 +26,17 @@ const Home = () => {
       <div className="container home-page">
         <div className="text-zone">
           <h1>
-            <span className={letterClass}>H</span>
-            <span className={`${letterClass} _12`}>i,</span>
+            <AnimatedLetters
+              letterClass={letterClass}
+              strArray={"Hi".split('')}
+              idx={10}
+            />
             <br />
-            <span className={`${letterClass} _13`}>I</span>
-            <span className={`${letterClass} _14`}>'m</span>
+            <AnimatedLetters
+              letterClass={letterClass}
+              strArray={"I'm".split('')}
+              idx={12}
+            />
             <img src={LogoTitle} alt="developer" />
             <AnimatedLetters
               letterClass={letterClass}

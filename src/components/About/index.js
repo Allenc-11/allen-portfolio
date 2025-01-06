@@ -13,6 +13,7 @@ import {
 
 const About = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
+  const title = 'About me'.split('')
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -32,7 +33,7 @@ const About = () => {
           <h1>
             <AnimatedLetters
               letterClass={letterClass}
-              strArray={'Aboue me'.split('')}
+              strArray={title}
               idx={15}
             />
           </h1>

@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react'
 
 function App() {
   const [isAppVisible, setIsAppVisible] = useState(false)
+  
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsAppVisible(true)
@@ -17,6 +18,7 @@ function App() {
 
     return () => clearTimeout(timer)
   }, [])
+  
   return (
     <>
       <Preloader />

@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import Logo from '../../assets/images/logo-a3d.png'
+import React, {useEffect } from 'react'
 import { preLoaderAnim } from './animations'
 import './index.scss'
 

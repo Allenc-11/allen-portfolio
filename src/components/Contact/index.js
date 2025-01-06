@@ -15,7 +15,8 @@ const Contact = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
   const refForm = useRef()
   const position = [43.65, -79.38]
-  const radius = 30000
+  const radius = 22000
+  const title = 'Contact me'.split('')
 
   function ZoomToMarker({ position }) {
     const map = useMap()
@@ -36,7 +37,7 @@ const Contact = () => {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setLetterClass('text-animate-hover')
-    }, 4000)
+    }, 3000)
     // Cleanup function
     return () => {
       clearTimeout(timeoutId)
@@ -69,9 +70,9 @@ const Contact = () => {
       )
       .then(
         () => {
-          alert('MESSAGE SUCCESSFULLY SENT!')
           // Save the current timestamp in local storage
           localStorage.setItem('lastEmailTimestamp', now)
+          alert('MESSAGE SUCCESSFULLY SENT!')
           window.location.reload(false)
         },
         () => {
@@ -87,7 +88,7 @@ const Contact = () => {
           <h1>
             <AnimatedLetters
               letterClass={letterClass}
-              strArray={['C', 'o', 'n', 't', 'a', 'c', 't', ' ', 'm', 'e']}
+              strArray={title}
               idx={15}
             />
           </h1>

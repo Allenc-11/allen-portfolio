@@ -21,8 +21,7 @@
       font-family: 'La Belle Aurore';
       font-size: 18px;
       position: absolute;
-      margin-top: -40px;
-      left: 15px;
+      margin-top: -20px;
       opacity: 0.6;
     }
 
@@ -33,7 +32,7 @@
       font-size: 18px;
       position: absolute;
       opacity: 0.6;
-      margin-top: 18px;
+      margin-top: 40px;
       margin-left: 20px;
       animation: fadeIn 1s 1.7s backwards;
     }
@@ -43,7 +42,7 @@
       margin-left: 20px;
       opacity: 0;
       height: auto;
-      animation: rotateIn 1s linear both;
+      animation: rotateIn 0.3s 1.5s linear both;
     }
   }
 
