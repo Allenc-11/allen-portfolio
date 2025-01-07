@@ -21,8 +21,7 @@ function App() {
   
   return (
     <>
-      <Preloader />
-      {isAppVisible && (
+      
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
@@ -31,7 +30,7 @@ function App() {
             <Route path="portfolio" element={<Portfolio />} />
           </Route>
         </Routes>
-      )}
+
     </>
   )
 }

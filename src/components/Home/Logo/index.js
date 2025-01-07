@@ -1,8 +1,10 @@
 import './index.scss'
 import { motion } from 'framer-motion'
 import Photo from '../../../assets/images/photo.png'
+import { useState } from 'react'
 
 const Logo = () => {
+  const [radius, setRadius] = useState(250)
   return (
     <div className="logo-container">
       <img className="solid-logo" src={Photo} alt="developer photo" />
@@ -17,7 +19,7 @@ const Logo = () => {
         <motion.circle
           cx="253"
           cy="253"
-          r="250"
+          r={radius}
           stroke="#00ff99"
           strokeWidth="4"
           strokeLinecap="round"

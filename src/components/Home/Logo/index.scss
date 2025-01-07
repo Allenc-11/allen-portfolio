@@ -17,13 +17,14 @@
     bottom: auto;
     left: 0;
     margin: auto;
-    top: 3%;
-    left: 3%;
+    top: 2%;
+    left: 2%;
     width: 120%;
     animation: ease-in 1s;
   }
 
   .blur-logo {
+    z-index: 1;
     position: absolute;
     top: auto;
     right: auto;
