@@ -29,7 +29,7 @@ This website is built with:
 ## Future Enhancements
 - Add more projects and achievements as I grow.
 - Implement a blog section to share insights and experiences.
-- Construct a backend server with Node.js
+- Construct a backend server
 - Optimize website performance and accessibility.
 
 ## Contact
