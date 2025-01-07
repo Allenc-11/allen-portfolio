@@ -51,15 +51,20 @@ const Contact = () => {
     const lastEmailTimestamp = localStorage.getItem('lastEmailTimestamp')
     const now = Date.now()
 
-    if (lastEmailTimestamp && now - lastEmailTimestamp < 10 * 60 * 1000) {
+    /*if (lastEmailTimestamp && now - lastEmailTimestamp < 10 * 60 * 1000) {
       const timeRemaining = Math.ceil(
         (10 * 60 * 1000 - (now - lastEmailTimestamp)) / 1000 / 60
       )
-      alert(
-        `You can only send one email every 10 minutes. Please wait ${timeRemaining} more minutes.`
+      showMessage(
+        `You can only send one email every 10 minutes. Please wait ${timeRemaining} more minutes.`,
+        'error'
       )
       return
-    }
+    }*/
+
+    const submitButton = refForm.current.querySelector("input[type='submit']")
+    submitButton.disabled = true
+    submitButton.value = 'SENDING...' // Provide feedback to the user
 
     emailjs
       .sendForm(
@@ -72,13 +77,61 @@ const Contact = () => {
         () => {
           // Save the current timestamp in local storage
           localStorage.setItem('lastEmailTimestamp', now)
-          alert('MESSAGE SUCCESSFULLY SENT!')
-          window.location.reload(false)
+
+          // Clear the form
+          refForm.current.reset()
+
+          // Show a success message
+          showMessage('MESSAGE SUCCESSFULLY SENT!', 'success')
+
+          // Re-enable the button
+          submitButton.disabled = false
+          submitButton.value = 'SEND' // Restore the original button text
         },
         () => {
-          alert('FAILED TO SEND THE MESSAGE, PLEASE TRY AGAIN')
+          // Show an error message
+          showMessage('FAILED TO SEND THE MESSAGE, PLEASE TRY AGAIN', 'error')
+
+          // Re-enable the button
+          submitButton.disabled = false
+          submitButton.value = 'SEND' // Restore the original button text
         }
       )
+  }
+
+  // Helper function to show messages
+  const showMessage = (message, type) => {
+    // Create the message element
+    const messageElement = document.createElement('div')
+    messageElement.innerText = message
+    messageElement.style.padding = '10px'
+    messageElement.style.marginTop = '10px'
+    messageElement.style.position = 'fixed' // Fixed position to ensure it's above everything
+    messageElement.style.borderRadius = '5px'
+    messageElement.style.fontSize = '16px'
+    messageElement.style.display = 'flex'
+    messageElement.style.justifyContent = 'center'
+    messageElement.style.alignItems = 'center'
+    messageElement.style.left = '10%' // Horizontal center
+    messageElement.style.zIndex = '999'
+    messageElement.style.width = '80%'
+
+    // Apply styles based on the message type
+    if (type === 'success') {
+      messageElement.style.color = 'white'
+      messageElement.style.backgroundColor = 'green'
+    } else if (type === 'error') {
+      messageElement.style.color = 'white'
+      messageElement.style.backgroundColor = 'red'
+    }
+
+    // Append the message to the body (or any specific container)
+    document.body.appendChild(messageElement)
+
+    // Remove the message automatically after 3 seconds
+    setTimeout(() => {
+      messageElement.remove()
+    }, 3000)
   }
 
   return (
