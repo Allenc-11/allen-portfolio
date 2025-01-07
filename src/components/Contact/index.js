@@ -51,7 +51,7 @@ const Contact = () => {
     const lastEmailTimestamp = localStorage.getItem('lastEmailTimestamp')
     const now = Date.now()
 
-    /*if (lastEmailTimestamp && now - lastEmailTimestamp < 10 * 60 * 1000) {
+    if (lastEmailTimestamp && now - lastEmailTimestamp < 10 * 60 * 1000) {
       const timeRemaining = Math.ceil(
         (10 * 60 * 1000 - (now - lastEmailTimestamp)) / 1000 / 60
       )
@@ -60,7 +60,7 @@ const Contact = () => {
         'error'
       )
       return
-    }*/
+    }
 
     const submitButton = refForm.current.querySelector("input[type='submit']")
     submitButton.disabled = true
@@ -106,15 +106,15 @@ const Contact = () => {
     messageElement.innerText = message
     messageElement.style.padding = '10px'
     messageElement.style.marginTop = '10px'
-    messageElement.style.position = 'fixed' // Fixed position to ensure it's above everything
+    messageElement.style.position = 'fixed' // Fixed positioning to avoid conflicts
+    messageElement.style.top = '20px' // Adjust placement
+    messageElement.style.left = '50%' // Center horizontally
+    messageElement.style.transform = 'translateX(-50%)' // Center alignment correction
     messageElement.style.borderRadius = '5px'
     messageElement.style.fontSize = '16px'
-    messageElement.style.display = 'flex'
-    messageElement.style.justifyContent = 'center'
-    messageElement.style.alignItems = 'center'
-    messageElement.style.left = '10%' // Horizontal center
-    messageElement.style.zIndex = '999'
-    messageElement.style.width = '80%'
+    messageElement.style.zIndex = '9999' // Higher z-index for visibility
+    messageElement.style.maxWidth = '90%' // Optional: prevent overflow on small screens
+    messageElement.style.textAlign = 'center'
 
     // Apply styles based on the message type
     if (type === 'success') {
