@@ -1,16 +1,16 @@
 {
   "portfolio": [
     {
-      "cover": "/portfolio/one.png",
-      "title": "GGWP",
-      "description": "React, JSX, Tailwind, Jest",
-      "url": "http://google.com"
+      "cover": "/portfolio/Speed.png",
+      "title": "Speed",
+      "description": "Java",
+      "url": "https://github.com/Allenc-11/Speed"
     },
     {
-      "cover": "/portfolio/one.png",
-      "title": "GGWP",
-      "description": "React, JSX, Tailwind, Jest",
-      "url": "http://google.com"
+      "cover": "/portfolio/Wordle.png",
+      "title": "Wordle Clone",
+      "description": "HTML, CSS, JavaScript",
+      "url": "https://allenc-11.github.io/Wordle/"
     }
   ]
 }

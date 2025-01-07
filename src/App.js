@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react'
 
 function App() {
   const [isAppVisible, setIsAppVisible] = useState(false)
-  
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsAppVisible(true)
@@ -18,10 +18,11 @@ function App() {
 
     return () => clearTimeout(timer)
   }, [])
-  
+
   return (
     <>
-      
+      <Preloader />
+      {isAppVisible && (
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
@@ -30,7 +31,7 @@ function App() {
             <Route path="portfolio" element={<Portfolio />} />
           </Route>
         </Routes>
-
+      )}
     </>
   )
 }

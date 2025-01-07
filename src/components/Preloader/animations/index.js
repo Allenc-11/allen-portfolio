@@ -1,52 +1,51 @@
-import gsap from "gsap";
+import gsap from 'gsap'
 
 // Declare a general timeline to use in all the animation functions.
 
-const tl = gsap.timeline();
+const tl = gsap.timeline()
 
 // Preloader Animation
 export const preLoaderAnim = () => {
-  tl.to("body", {
+  tl.to('body', {
     duration: 0.1,
-    css: { overflowY: "hidden" },
-    ease: "power3.inOut",
+    ease: 'power3.inOut',
   })
-  
-    .to(".texts-container", {
+
+    .to('.texts-container', {
       duration: 0,
       opacity: 1,
-      ease: "Power3.easeOut",
+      ease: 'Power3.easeOut',
     })
-    .from(".texts-container span", {
+    .from('.texts-container span', {
       duration: 1.5,
       delay: 1,
       y: 70,
       skewY: 10,
       stagger: 0.4,
-      ease: "Power3.easeOut",
+      ease: 'Power3.easeOut',
     })
-    .to(".texts-container span", {
+    .to('.texts-container span', {
       duration: 1,
       y: 70,
       skewY: -20,
       stagger: 0.2,
-      ease: "Power3.easeOut",
+      ease: 'Power3.easeOut',
     })
-    .to("body", {
+    .to('body', {
       duration: 1.3,
-      ease: "power3.inOut",
+      ease: 'power3.inOut',
     })
     .to(
-      ".preloader",
+      '.preloader',
       {
         duration: 1.5,
-        height: "0vh",
-        ease: "Power3.easeOut",
+        height: '0vh',
+        ease: 'Power3.easeOut',
       },
-      "-=2"
+      '-=2'
     )
-    .to(".preloader", {
+    .to('.preloader', {
       duration: 0,
-      css: { display: "none"},
-    });
-};
+      css: { display: 'none' },
+    })
+}
