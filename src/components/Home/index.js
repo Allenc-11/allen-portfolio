@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import AnimatedLetters from '../AnimatedLetters'
 import Logo from './Logo'
+import resume from '../../assets/images/Resume.pdf'
 
 const Home = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
   const nameArray = 'llen'.split('')
-  const jobArray = 'Software Enginner.'.split('')
+  const jobArray = 'software engineer.'.split('')
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -51,9 +52,14 @@ const Home = () => {
             />
           </h1>
           <h2>Embracing the Journey of Becoming a Software Developer.</h2>
-          <Link to="contact" className="flat-button">
-            CONTACT ME
-          </Link>
+          <div className='button-container'>
+            <Link to="contact" className="flat-button">
+              CONTACT ME
+            </Link>
+            <a href={resume} target="_blank" className="flat-button">
+              RESUME
+            </a>
+          </div>
         </div>
         <Logo />
       </div>

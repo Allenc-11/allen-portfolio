@@ -12,13 +12,25 @@ import {
 } from 'react-leaflet'
 
 const Contact = () => {
-  const [letterClass, setLetterClass] = useState('text-animate')
   const refForm = useRef()
   const position = [43.65, -79.38]
   const radius = 22000
   const title = 'Contact me'.split('')
 
-  function ZoomToMarker({ position }) {
+  //Letter loading animation
+  const [letterClass, setLetterClass] = useState('text-animate')
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setLetterClass('text-animate-hover')
+    }, 3000)
+    // Cleanup function
+    return () => {
+      clearTimeout(timeoutId)
+    }
+  }, [])
+
+  //Create a map with with zoom to marker function
+  const CreateMap = ({ position }) => {
     const map = useMap()
 
     const handleClick = () => {
@@ -34,16 +46,6 @@ const Contact = () => {
     )
   }
 
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setLetterClass('text-animate-hover')
-    }, 3000)
-    // Cleanup function
-    return () => {
-      clearTimeout(timeoutId)
-    }
-  }, [])
-
   const sendEmail = (e) => {
     e.preventDefault()
 
@@ -51,7 +53,9 @@ const Contact = () => {
     const lastEmailTimestamp = localStorage.getItem('lastEmailTimestamp')
     const now = Date.now()
 
-    if (lastEmailTimestamp && now - lastEmailTimestamp < 10 * 60 * 1000) {
+    // Wait 10 minutes before sending the next email
+    const time = 10 * 60 * 1000;
+    if (lastEmailTimestamp && now - lastEmailTimestamp < time) {
       const timeRemaining = Math.ceil(
         (10 * 60 * 1000 - (now - lastEmailTimestamp)) / 1000 / 60
       )
@@ -62,8 +66,8 @@ const Contact = () => {
       return
     }
 
-    const submitButton = refForm.current.querySelector("input[type='submit']")
-    submitButton.disabled = true
+    const submitButton = refForm.current.querySelector("input[type='submit']") //Select the button
+    submitButton.disabled = true //disable button to avoid email spam
     submitButton.value = 'SENDING...' // Provide feedback to the user
 
     emailjs
@@ -200,12 +204,12 @@ const Contact = () => {
           <span>allenjfchen1121@gmail.com</span>
         </div>
         <div className="map-wrap">
-          <MapContainer center={position} zoom={9} scrollWheelZoom={true}>
+          <MapContainer center={position} zoom={9} scrollWheelZoom={false}>
             <TileLayer
               url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
               attribution='&copy; <a href="https://www.carto.com/">CARTO</a>'
             />
-            <ZoomToMarker position={position} />
+            <CreateMap position={position} />
             <Circle
               center={position}
               radius={radius}

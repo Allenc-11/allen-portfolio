@@ -31,6 +31,7 @@ export const preLoaderAnim = () => {
       stagger: 0.2,
       ease: 'Power3.easeOut',
     })
+    /* Reflexable duration to adjust*/
     .to('body', {
       duration: 1.3,
       ease: 'power3.inOut',
@@ -38,7 +39,7 @@ export const preLoaderAnim = () => {
     .to(
       '.preloader',
       {
-        duration: 1.5,
+        duration: 1.5, 
         height: '0vh',
         ease: 'Power3.easeOut',
       },

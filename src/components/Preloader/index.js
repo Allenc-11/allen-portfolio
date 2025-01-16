@@ -1,4 +1,4 @@
-import React, {useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { preLoaderAnim } from './animations'
 import './index.scss'
 
@@ -10,10 +10,11 @@ const Preloader = () => {
   return (
     <div className="preloader">
       <div className="texts-container">
-        <span>Welcome </span>
-        <span>to </span>
-        <span>My </span>
-        <span>Website </span>
+        <span>Dream </span>
+        <span>It, </span>
+        <span>and </span>
+        <span>Build </span>
+        <span>It </span>
       </div>
     </div>
   )
