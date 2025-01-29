@@ -2,9 +2,9 @@ import React, { useEffect } from 'react'
 import { preLoaderAnim } from './animations'
 import './index.scss'
 
-const Preloader = () => {
+const Preloader = ({ onAnimationComplete }) => {
   useEffect(() => {
-    preLoaderAnim()
+    preLoaderAnim(onAnimationComplete)
   }, [])
 
   return (
@@ -12,7 +12,6 @@ const Preloader = () => {
       <div className="texts-container">
         <span>Dream </span>
         <span>It, </span>
-        <span>and </span>
         <span>Build </span>
         <span>It </span>
       </div>

@@ -6,22 +6,14 @@ import About from './components/About'
 import Contact from './components/Contact'
 import Portfolio from './components/Portfolio'
 import Preloader from './components/Preloader'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 function App() {
   const [isAppVisible, setIsAppVisible] = useState(false)
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsAppVisible(true)
-    }, 5250)
-
-    return () => clearTimeout(timer)
-  }, [])
-
   return (
     <>
-      <Preloader />
+      <Preloader onAnimationComplete={() => setIsAppVisible(true)}/>
       {isAppVisible && (
         <Routes>
           <Route path="/" element={<Layout />}>
