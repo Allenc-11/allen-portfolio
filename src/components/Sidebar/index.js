@@ -1,7 +1,8 @@
-import { Link, NavLink } from 'react-router-dom'
 import './index.scss'
 import Logo from '../../assets/images/logo-ac.png'
 import LogoSubtitle from '../../assets/images/logo_sub.png'
+import { Link, NavLink } from 'react-router-dom'
+import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faEnvelope,
@@ -16,7 +17,6 @@ import {
   faInstagram,
   faLinkedin,
 } from '@fortawesome/free-brands-svg-icons'
-import { useState } from 'react'
 
 const Sidebar = () => {
   const [showNav, setShowNav] = useState(false)
@@ -100,12 +100,13 @@ const Sidebar = () => {
           </a>
         </li>
       </ul>
-      <FontAwesomeIcon 
-          onClick={() => setShowNav(true)}
-          icon={faBars}
-          color="#ffd700"
-          size="3x"
-          className='hamburger-icon' />
+      <FontAwesomeIcon
+        onClick={() => setShowNav(true)}
+        icon={faBars}
+        color="#ffd700"
+        size="3x"
+        className="hamburger-icon"
+      />
     </div>
   )
 }

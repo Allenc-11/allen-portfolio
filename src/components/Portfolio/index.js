@@ -1,7 +1,7 @@
 import './index.scss'
 import AnimatedLetters from '../AnimatedLetters'
-import { useEffect, useState } from 'react'
 import portfolioData from '../../data/portfolio.json'
+import { useEffect, useState } from 'react'
 
 const Portfolio = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
@@ -27,7 +27,8 @@ const Portfolio = () => {
               <img
                 src={process.env.PUBLIC_URL + port.cover}
                 className="portfolio-image"
-                alt="portfolio"/>
+                alt="portfolio"
+              />
               <div className="content">
                 <p className="title">{port.title}</p>
                 <h4 className="description">{port.description}</h4>

@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
 import './index.scss'
+import React, { useEffect } from 'react'
 
 const Cursor = () => {
   useEffect(() => {

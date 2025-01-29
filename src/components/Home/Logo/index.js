@@ -1,10 +1,9 @@
 import './index.scss'
-import { motion } from 'framer-motion'
 import Photo from '../../../assets/images/photo.png'
-import { useState } from 'react'
+import { motion } from 'framer-motion'
 
 const Logo = () => {
-  const [radius, setRadius] = useState(250)
+  const radius = 250
   return (
     <div className="logo-container">
       <img className="solid-logo" src={Photo} alt="developer photo" />

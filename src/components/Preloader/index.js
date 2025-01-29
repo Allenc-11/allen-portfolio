@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
-import { preLoaderAnim } from './animations'
 import './index.scss'
+import preLoaderAnim from './animations'
+import React, { useEffect } from 'react'
 
 const Preloader = ({ onAnimationComplete }) => {
   useEffect(() => {

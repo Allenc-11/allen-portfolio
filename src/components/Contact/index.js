@@ -54,7 +54,7 @@ const Contact = () => {
     const now = Date.now()
 
     // Wait 10 minutes before sending the next email
-    const time = 10 * 60 * 1000;
+    const time = 10 * 60 * 1000
     if (lastEmailTimestamp && now - lastEmailTimestamp < time) {
       const timeRemaining = Math.ceil(
         (10 * 60 * 1000 - (now - lastEmailTimestamp)) / 1000 / 60

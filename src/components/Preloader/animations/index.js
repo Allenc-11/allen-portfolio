@@ -1,9 +1,9 @@
 import gsap from 'gsap'
 
-const tl = gsap.timeline();
+const tl = gsap.timeline()
 
 // Preloader Animation
-export const preLoaderAnim = (onAnimationComplete) => {
+const preLoaderAnim = (onAnimationComplete) => {
   tl.to('body', {
     duration: 0.1,
     ease: 'power3.inOut',
@@ -49,8 +49,10 @@ export const preLoaderAnim = (onAnimationComplete) => {
       css: { display: 'none' },
       onComplete: () => {
         if (typeof onAnimationComplete === 'function') {
-          onAnimationComplete(); // Ensure it's only called if it's a function
+          onAnimationComplete() // Ensure it's only called if it's a function
         }
       },
     })
 }
+
+export default preLoaderAnim

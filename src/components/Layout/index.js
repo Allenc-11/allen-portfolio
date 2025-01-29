@@ -1,6 +1,6 @@
+import './index.scss'
 import Sidebar from '../Sidebar'
 import Cursor from '../Cursor'
-import './index.scss'
 import { Outlet } from 'react-router-dom'
 
 const Layout = () => {

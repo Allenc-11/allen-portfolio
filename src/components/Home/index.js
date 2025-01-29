@@ -1,10 +1,10 @@
 import './index.scss'
 import LogoTitle from '../../assets/images/logo-a.png'
-import { Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
 import AnimatedLetters from '../AnimatedLetters'
 import Logo from './Logo'
 import resume from '../../assets/images/Resume.pdf'
+import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 
 const Home = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
@@ -52,7 +52,7 @@ const Home = () => {
             />
           </h1>
           <h2>Embracing the Journey of Becoming a Software Developer.</h2>
-          <div className='button-container'>
+          <div className="button-container">
             <Link to="contact" className="flat-button">
               CONTACT ME
             </Link>
